@@ -1,0 +1,11 @@
+<div id="menu">
+	<ul>
+		<li><a ng-click="menu('menusearch')" id="menusearch" href="#search">Search logs</a></li>
+		<li><a ng-click="menu('menupost')" id="menupost" href="#post">Full post logs</a></li>
+		<li><a ng-click="menu('menutest')" id="menutest" href="#test">Test</a></li>
+	</ul>
+</div>
+
+<div class="scrollLink" scroll-top data-scrolltarget="#pageBottom" data-scrollText="Scroll to bottom out of scope"></div>
+
+<div ng-view class="ngviewElement"></div>

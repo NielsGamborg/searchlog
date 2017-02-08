@@ -1,0 +1,33 @@
+	<div>
+		<div class="scrollLink" scroll-top data-scrolltarget="#pageBottom" data-scrollText="Scroll to bottom"></div>
+		<pickdate-box call-get-log-data="callGetLogData(date)"></pickdate-box>
+	
+		<h1>Searches</h1>
+
+		<div id="pager">
+			<span ng-click="callGetLogData(date,$index)" ng-repeat="item in logData | limitTo : logData.length/100 " 
+				class="pagerItem" ng-class="{active: $index == selected}">{{ $index + 1 }}</span>
+		</div>
+		
+		<table class="dataTable">
+			<thead>
+				<th ng-click="callSortBy('myNumber')">No</th>
+				<th ng-click="callSortBy('time')">Time</th>
+				<th ng-click="callSortBy('advanced')">Advanced</th>
+				<th ng-click="callSortBy('search')">Search query</th>
+			</thead>
+			<tbody>
+				<tr class="repeatAnimate"  ng-repeat="item in logData | orderBy:propertyName:reverse ">
+					<td ng-click="testFunction({time:item.time,logData:logData})">{{ item.myNumber + 1 }}</td>
+					<td class="date">{{ item.time | date: 'dd-MM-yyyy HH:mm:ss'}}</td>
+					<td>{{ item.advanced  == true ? "Advanced" : "Simple" }}</td>
+					<td><a href="https://www.statsbiblioteket.dk/au/#/search?query={{ item.search }}">{{ item.search }}</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="scrollLink" scroll-top data-scrolltarget="#wrapper" data-scrollText="Scroll to top"></div>
+		<!-- <div class="scrollLink" ng-click="scrollToTop('testid666')">Scroll to top 2</div> -->
+		<div id="pageBottom"></div>
+			
+	</div>

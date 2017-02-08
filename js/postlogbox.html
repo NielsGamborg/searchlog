@@ -1,0 +1,52 @@
+	<div>
+		<div class="scrollLink" scroll-top data-scrolltarget="#pageBottom" data-scrollText="Scroll to bottom"></div>
+		<pickdate-box call-get-log-data="callGetLogData(date)"></pickdate-box>
+		
+		<h1>Fullpost</h1>
+		
+		<div id="recordModalNoData" class="modal">
+			<div class="close" ng-click="closeModal()">Close</div>
+			<h2>No data available for this record!</h2>	
+		</div>
+		
+		<div id="recordModal" class="modal">
+			<div class="close" ng-click="closeModal()">Close</div>
+			<h2>Short record data</h2>
+			<table>
+				<thead>
+					<th>Title</th>
+					<th>Creator</th>
+					<th>Date</th>
+					<th>Type</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{ recordData.title }}</td>
+						<td><span ng-if="recordData.creators[0] != ''" ng-repeat="creator in recordData.creators">{{ creator }}<span ng-if="!$last">;</span> </span></td>
+						<td>{{ recordData.date }}</td>
+						<td>{{ recordData.type }}</td>
+					</tr>
+				</tbody>
+			</table>			
+		</div>
+				
+				
+		<table class="dataTable">
+			<thead>
+				<th ng-click="callSortBy('myNumber')">No</th>
+				<th ng-click="callSortBy('time')">Time</th>
+				<th ng-click="callSortBy('record')">Post</th>
+			</thead>
+			<tbody>
+				<tr class="repeatAnimate" ng-repeat="item in logData | orderBy:propertyName:reverse">
+					<td>{{ item.myNumber + 1 }}</td>
+					<td class="date">{{ item.time | date: 'dd-MM-yyyy HH:mm:ss'  }}</td> <!-- -->
+					<td ng-click="callGetShortRecord(item.record)"  class="recordId">{{ item.record }}</td>
+				</tr>
+			</tbody>
+		</table>
+	
+		<div class="scrollLink" scroll-top data-scrolltarget="#wrapper" data-scrollText="Scroll to top"></div>
+		<div id="pageBottom"></div>
+			
+	</div>

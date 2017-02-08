@@ -1,0 +1,211 @@
+body{
+	background: #F0F3F6;
+	font: 80%/1.5em Arial, Helvetica, sans-serif;
+}
+
+#wrapper{
+	background: white;
+	margin: 2em auto;
+	max-width: 1000px;
+	min-height: 500px;
+	padding: 0 30px 30px;
+}
+			
+table{
+	border-collapse:collapse;
+	width: 100%;
+}
+
+tr:nth-child(even){
+	background: #f6fcff;
+}
+			
+td, th{
+	border: 1px solid #cccccc;
+	overflow: hidden;
+	padding: .3em .6em;
+	text-align: left;
+}
+			
+th{
+	background: #005566;
+	color: white;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.dataTable td.date{
+	white-space: nowrap;
+}
+
+.dataTable td:last-child{
+	width: 100%;
+	max-width: 750px;
+}
+
+.dataTable .recordId{
+	cursor: pointer;
+}
+
+.pickDate{
+	float: right;
+}
+
+.blur{
+	filter: blur(1px);
+}
+
+#spinner{
+	background: white url("gfx/loader90.gif") no-repeat 2em 2em;
+	border: 1px solid #666;
+	border-radius: 3px;
+	display: none;
+	font-size: 16px;
+	height: 50px;
+	left: calc(50% - 100px);
+	padding: 4em 2em 2em;
+	position: fixed;
+	text-indent: 120px;
+	top: 10%;
+	width:  200px;
+	z-index: 1000;
+}
+
+#spinner.error{
+	background: #cc0000;
+	color: white;
+	font-weight: bold;
+	left: calc(50% - 200px);
+	padding: 1em;
+	width: 400px;
+	text-indent: 0px;
+}
+
+#overlay{
+	background: black;
+	bottom: 0;
+	display: none;
+	left: 0;
+	opacity: 0.2;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 100;
+}
+
+/* Short record modal */
+#recordModal .close, #recordModalNoData .close{
+	color: #0000cc;
+	cursor: pointer;
+	float: right;
+}
+
+#recordModal h2{
+	margin-top: 0;
+}
+
+#recordModal, #recordModalNoData{
+	background: white;
+	border: 1px solid #666666;
+	box-shadow: 0px 0px 5px #333;
+	box-sizing: border-box;
+	display: none;
+	padding: 2em 3em 3em;
+	position: fixed;
+	top: 10%;
+	left: calc(50% - 450px);
+	width: 900px;
+	z-index: 1000;
+}
+
+#recordModal table{
+	background: white;
+}
+
+#pager{
+	float: right;
+	margin-bottom: .5em;
+}
+
+.pagerItem{
+	background-color: #e9e9e9;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	cursor: pointer;
+	display: inline-block;
+	margin-left: .3em;
+	padding: 3px .5em;
+}
+
+.pagerItem:hover{
+	background-color: white;
+}
+
+.pagerItem.active{
+	background-color: white;
+}
+
+.scrollLink{
+	cursor: pointer;
+}
+
+/* Animations ... doesn't really run smooth*/
+.ngviewElement.ng-enter{
+	opacity: 0;
+	transition: .5s linear all;
+}
+
+.ngviewElement.ng-enter.ng-enter-active{
+	opacity: 1;
+}
+
+/* Should prevent flickering before animations kick in */
+/*.repeatAnimate.ng-enter.ng-enter-prepare { 
+  opacity: 0;
+}*/
+
+.repeatAnimate.ng-enter{
+	opacity: 0;
+	transition: 1s linear all;
+}
+
+.repeatAnimate.ng-enter.ng-enter-active{
+	opacity: 1;
+}
+
+/* Menu */
+#menu{
+	background: #000;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0 -30px 2em;
+	overflow: hidden;
+}
+
+#menu ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#menu ul li{
+	float: left;
+}
+
+#menu ul li a{
+	border-right: 1px solid #cccccc;
+	color: #eeeeee;
+	display: inline-block;
+	padding: .5em 1em;
+	text-decoration: none;
+}
+
+#menu ul li a:hover{
+	background: #555555;
+	color: #ffffff;
+}
+
+#menu ul li a.active{
+	background: white;
+	color: black;
+}
